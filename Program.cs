@@ -36,7 +36,7 @@ namespace MiniWeek41
             {
                 App.PrintTextWithColor("\nEnter 'q' to quit.\n", ConsoleColor.Blue);
 
-                // Enable selection of an asset type.
+                // Enable selection of an asset type for user.
                 int? productClass;
                 while (true)
                 {
@@ -57,7 +57,7 @@ namespace MiniWeek41
                     break;
                 }
 
-                // Gets local price
+                // Gets local price from user
                 float price;
                 while (true)
                 {
@@ -79,7 +79,7 @@ namespace MiniWeek41
                     break;
                 }
 
-                // Gets local currency
+                // Gets local currency from user
                 int? currency;
                 while (true)
                 {
@@ -100,7 +100,7 @@ namespace MiniWeek41
                     break;
                 }
 
-                // Gets purchase date
+                // Gets purchase date from user
                 DateTime purchaseDate;
                 while (true)
                 {
@@ -120,7 +120,7 @@ namespace MiniWeek41
                     break;
                 }
 
-                // Gets brand
+                // Gets brand name from user
                 string? brand;
                 while (true)
                 {
@@ -135,7 +135,7 @@ namespace MiniWeek41
                     break;
                 }
 
-                // Gets model
+                // Gets model name from user
                 string? model;
                 while (true)
                 {
