@@ -77,7 +77,7 @@ namespace WeeklyMiniProject3
                 int? currency;
                 while (true)
                 {
-                    string m = "Enter '1', '2' or '3' to choose a currency: \n1 = EUR for Germany\n2 = SEK for Sweden\n3 = USA for United States\n";
+                    string m = "Enter '1', '2' or '3' to choose a currency: \n1 = EUR for Germany\n2 = SEK for Sweden\n3 = USD for United States\n";
                     App.PrintTextWithColor(m, ConsoleColor.Blue);
                     string? _currency = App.GetInput();
 
@@ -141,29 +141,10 @@ namespace WeeklyMiniProject3
                     break;
                 }
 
-                int? country = null;
-                while (true)
-                {
-                    App.PrintTextWithColor("\nEnter '1', '2' or '3' to choose a country:\n1 = Germany\n2 = Sweden\n3 = USA\n", ConsoleColor.Blue);
-                    string? _country = App.GetInput();
-
-                    if (_country is null)
-                        continue;
-
-                    App.exitIfUserWants(_country);
-
-                    country = App.GetInputAsInteger(_country, 1, 3);
-
-                    if (country is null)
-                        continue;
-
-                    break;
-                }
-
                 if (productClass == 1)
-                    tracker.AddAsset(new Computer(new Price(price, (Currency)(currency - 1)), purchaseDate, brand, model, (Country)(country - 1)));
+                    tracker.AddAsset(new Computer(new Price(price, (Currency)(currency - 1)), purchaseDate, brand, model, (Country)(currency - 1)));
                 else
-                    tracker.AddAsset(new Smartphone(new Price(price, (Currency)(currency - 1)), purchaseDate, brand, model, (Country)(country - 1)));
+                    tracker.AddAsset(new Smartphone(new Price(price, (Currency)(currency - 1)), purchaseDate, brand, model, (Country)(currency - 1)));
 
                 App.PrintAssets(tracker.getAssets());
                 App.PrintTextWithColor("\nEnter 'q' to quit or press 'Enter' key to add more assets.", ConsoleColor.Blue);
@@ -353,7 +334,7 @@ namespace WeeklyMiniProject3
 
         public Product(Price price, DateTime purchaceDate, string brand, string model, Country country)
         {
-            this.PriceUSD = Price.ConvertToUSA(price);
+            this.PriceUSD = Price.ConvertToUSD(price);
             this.Price = price;
             this.PurchaceDate = purchaceDate;
             this.Brand = brand;
@@ -423,7 +404,7 @@ namespace WeeklyMiniProject3
             return this._price;
         }
 
-        public static float ConvertToUSA(Price price)
+        public static float ConvertToUSD(Price price)
         {
             float convertedValue = -1;
 
