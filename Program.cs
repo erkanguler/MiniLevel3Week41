@@ -2,6 +2,7 @@
 
 namespace MiniWeek41
 {
+    // Contains all types of assets
     class Tracker
     {
         private List<Asset> assets = new List<Asset>();
@@ -14,6 +15,7 @@ namespace MiniWeek41
         public List<Asset> getAssets() => assets;
     }
 
+    // Connects user actions to business logic 
     class App
     {
         public const int THREE_YEAR = 365 * 3;
@@ -33,6 +35,8 @@ namespace MiniWeek41
             while (true)
             {
                 App.PrintTextWithColor("\nEnter 'q' to quit.\n", ConsoleColor.Blue);
+
+                // Enable selection of an asset type.
                 int? productClass;
                 while (true)
                 {
@@ -53,6 +57,7 @@ namespace MiniWeek41
                     break;
                 }
 
+                // Gets local price
                 float price;
                 while (true)
                 {
@@ -74,6 +79,7 @@ namespace MiniWeek41
                     break;
                 }
 
+                // Gets local currency
                 int? currency;
                 while (true)
                 {
@@ -94,6 +100,7 @@ namespace MiniWeek41
                     break;
                 }
 
+                // Gets purchase date
                 DateTime purchaseDate;
                 while (true)
                 {
@@ -113,6 +120,7 @@ namespace MiniWeek41
                     break;
                 }
 
+                // Gets brand
                 string? brand;
                 while (true)
                 {
@@ -127,6 +135,7 @@ namespace MiniWeek41
                     break;
                 }
 
+                // Gets model
                 string? model;
                 while (true)
                 {
@@ -141,6 +150,7 @@ namespace MiniWeek41
                     break;
                 }
 
+                // Adds an asset
                 if (productClass == 1)
                     tracker.AddAsset(new Computer(new Price(price, (Currency)(currency - 1)), purchaseDate, brand, model, (Country)(currency - 1)));
                 else
@@ -395,7 +405,7 @@ namespace MiniWeek41
 
         public Price(float price, Currency currency)
         {
-            this._price = price;
+            this._price = (float)Math.Round(price, 2);
             this.Currency = currency;
         }
 
