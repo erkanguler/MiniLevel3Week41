@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace WeeklyMiniProject3
+namespace MiniWeek41
 {
     class Tracker
     {
