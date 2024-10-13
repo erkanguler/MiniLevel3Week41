@@ -190,10 +190,10 @@ namespace MiniWeek41
         {
             // More than 3 years and less then 3 months
             var today = DateTime.Now;
-            TimeSpan diff = today - (asset as Product)!.PurchaceDate;
+            TimeSpan assetAge = today - (asset as Product)!.PurchaceDate;
             TimeSpan threeMonths = today.AddMonths(3) - today;
 
-            if ((diff.Days > App.THREE_YEAR) & (diff.Days < App.THREE_YEAR + threeMonths.Days))
+            if ((assetAge.Days > App.THREE_YEAR) & (assetAge.Days < App.THREE_YEAR + threeMonths.Days))
                 return true;
 
             return false;
@@ -203,10 +203,10 @@ namespace MiniWeek41
         {
             // More than 3 years and more than 3 months
             var today = DateTime.Now;
-            TimeSpan diff = today - (asset as Product)!.PurchaceDate;
+            TimeSpan assetAge = today - (asset as Product)!.PurchaceDate;
             TimeSpan threeMonths = today.AddMonths(3) - today;
 
-            if ((diff.Days > App.THREE_YEAR) & (diff.Days > App.THREE_YEAR + threeMonths.Days))
+            if ((assetAge.Days > App.THREE_YEAR) & (assetAge.Days > App.THREE_YEAR + threeMonths.Days))
                 return true;
 
             return false;
